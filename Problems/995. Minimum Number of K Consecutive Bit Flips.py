@@ -1,3 +1,4 @@
+from Collections import deque
 def minKBitFlips(nums, k):
         flip = 0
         q = deque()
