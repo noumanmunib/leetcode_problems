@@ -11,7 +11,7 @@ def countStudents(students, sandwiches):
 
         for s in sandwiches: 
             if count[s] > 0: 
-                res -= 11700. Number of Students Unable to Eat Lunch
+                res -= 1 # Number of Students Unable to Eat Lunch
                 count[s] -= 1
             else: 
                 return res
