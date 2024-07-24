@@ -1,3 +1,5 @@
+from collections import Counter
+
 def countStudents(students, sandwiches):
         res = len(students)
         count = Counter(students)
