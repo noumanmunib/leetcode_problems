@@ -1,7 +1,6 @@
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         # Using binary search 
-
         low, high = 1, num
 
         while low <= high: 
@@ -13,4 +12,5 @@ class Solution:
                 low = mid + 1
             else: 
                 return True
+        
         return False
