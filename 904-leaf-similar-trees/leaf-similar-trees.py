@@ -11,6 +11,7 @@ class Solution:
 
         if len(s1) != len(s2):
             return False
+
         return all(a == b for a, b in zip(s1, s2))
 
     def getSequence(self, root):
@@ -19,16 +20,16 @@ class Solution:
         return result
 
     def dfs(self, root, result):
-        if root is None: 
-            return 
+        if not root: 
+            return
         
         if not root.left and not root.right: 
             result.append(root.val)
-            return
         
-        self.dfs(root.left, result)
-        self.dfs(root.right, result)
-                
+        self.dfs(root.left, result) 
+        self.dfs(root.right, result) 
+        
+    
 
 
         
