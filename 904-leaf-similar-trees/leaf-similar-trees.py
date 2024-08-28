@@ -5,32 +5,23 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:        
-        s1 = self.getSequence(root1)
-        s2 = self.getSequence(root2)
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        def dfs(root, leaf):
+            if not root: 
+                return
 
-        if len(s1) != len(s2):
-            return False
+            # check if leafnode:
+            if not root.left and not root.right: 
+                leaf.append(root.val)
+                return
+            dfs(root.left, leaf)
+            dfs(root.right, leaf)
 
-        return all(a == b for a, b in zip(s1, s2))
+        leaf1, leaf2 = [], []
+        dfs(root1, leaf1)
+        dfs(root2, leaf2)
 
-    def getSequence(self, root):
-        result = []
-        self.dfs(root, result)
-        return result
+        return leaf1 == leaf2
 
-    def dfs(self, root, result):
-        if not root: 
-            return
-        
-        if not root.left and not root.right: 
-            result.append(root.val)
-        
-        self.dfs(root.left, result) 
-        self.dfs(root.right, result) 
-        
-    
-
-
-        
-        
+    # time -> O(N+M)
+    # space -> O(N+M)
