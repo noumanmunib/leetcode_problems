@@ -1,24 +1,13 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        """
-        Generates the first `numRows` rows of Pascal's triangle.
+        res = [[1]]
 
-        Args:
-            numRows: The number of rows to generate.
+        for _ in range(numRows - 1):
+            dummy_row = [0] + res[-1] + [0]
+            row = []
 
-        Returns:
-            A list of lists representing the rows of Pascal's triangle.
-        """
-
-        if numRows == 0:
-            return []
-
-        result = [[1]]
-        for i in range(1, numRows):
-            row = [1]
-            for j in range(1, i):
-                row.append(result[i - 1][j - 1] + result[i - 1][j])
-            row.append(1)
-            result.append(row)
-
-        return result
+            for i in range(len(res[-1]) + 1):
+                row.append(dummy_row[i] + dummy_row[i+1])
+            res.append(row)
+        
+        return res
