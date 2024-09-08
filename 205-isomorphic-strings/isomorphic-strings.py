@@ -3,6 +3,10 @@ class Solution:
         indexS = [0] * 200
         indexT = [0] * 200
 
+        # strings cannot be same if the lengths are different 
+        if len(s) != len(t):
+            return False
+
         for i in range(len(s)):
             if indexS[ord(s[i])] != indexT[ord(t[i])]:
                 return False
