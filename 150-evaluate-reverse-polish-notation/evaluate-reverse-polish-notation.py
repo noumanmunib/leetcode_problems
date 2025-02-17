@@ -17,3 +17,6 @@ class Solution:
                 stack.append(int(i))    
 
         return stack[0]
+
+        #  time -> O(n)
+        #  Space -> O(n)
